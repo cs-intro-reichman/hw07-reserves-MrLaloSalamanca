@@ -22,22 +22,18 @@ public class SpellChecker {
 		String lWord1=word1.toLowerCase();
 		String lWord2=word2.toLowerCase();
 
-		if (lWord2.length()==0){
+		if (lWord2.length()==0)
 			return lWord1.length();
-		}
 
-		if (lWord1.length()==0){
+		if (lWord1.length()==0)
 			return lWord2.length();
-		}
 
-		if (lWord1.charAt(0)==lWord2.charAt(0)){
+		if (lWord1.charAt(0)==lWord2.charAt(0))
 			return levenshtein(tail(lWord1),tail(lWord2));
-
-		} else {
+			
+		else
 		return 1+(Math.min(Math.min(levenshtein(tail(lWord1), lWord2),levenshtein(lWord1,tail(lWord2))),levenshtein(tail(lWord1),tail(lWord2))));
-		}
 	}
-
 	public static String[] readDictionary(String fileName) {
 		String[] dictionary = new String[3000];
 		In in = new In("dictionary.txt");
